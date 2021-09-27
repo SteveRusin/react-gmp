@@ -1,0 +1,1 @@
+export { MoviesWrapper } from './MoviesWrapper';

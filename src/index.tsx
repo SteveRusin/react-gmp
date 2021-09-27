@@ -1,14 +1,22 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { ThemeProvider } from 'styled-components';
 
-import { GlobalStyles } from "./GlobalStyles";
+import { defaultTheme } from '@theme';
+import { ErrorBoundary } from '@shared';
 
-import App from "./App";
+import { GlobalStyles } from './GlobalStyles';
+
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <GlobalStyles />
-    <App />
+    <ErrorBoundary>
+      <ThemeProvider theme={defaultTheme}>
+        <GlobalStyles />
+        <App />
+      </ThemeProvider>
+    </ErrorBoundary>
   </React.StrictMode>,
-  document.querySelector("#root")
+  document.querySelector('#root')
 );

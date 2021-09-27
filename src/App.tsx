@@ -1,9 +1,15 @@
-import styled from 'styled-components';
+import { HomePageHeader, Content } from './home-page';
 
-const Span = styled.span`
-  color: orange;
-`;
+import { Footer, FlexColumnContainer } from '@shared';
 
 export default function App() {
-  return <Span>Hello world</Span>;
+  return (
+    <>
+      <HomePageHeader />
+      <FlexColumnContainer>
+        <Content />
+      </FlexColumnContainer>
+      <Footer />
+    </>
+  );
 }

@@ -6,6 +6,12 @@ export const config: Configuration = {
   entry: resolve("src", "index.tsx"),
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
+    alias: {
+      '@shared': resolve("src", "shared"),
+      '@theme': resolve("src", "theme"),
+      '@assets': resolve("src", "assets"),
+      '@api': resolve("src", "api"),
+    }
   },
   module: {
     rules: [
