@@ -1,8 +1,11 @@
+import { FC } from 'react';
+
 import styled from 'styled-components';
 
 import { CategoryControls } from './CategoryControls';
 import { SortControl } from './SortControl';
 import { ControlsDivider } from './ControlsDivider';
+import { SortControlProps } from './Controls.models';
 
 const Wrapper = styled.div`
   .controls-container {
@@ -33,9 +36,13 @@ const Wrapper = styled.div`
   .sort-label {
     opacity: 0.6;
   }
+
+  .select-trigger {
+    background: transparent;
+  }
 `;
 
-export const ControlsWrapper = () => {
+export const ControlsWrapper: FC<SortControlProps> = (props) => {
   return (
     <Wrapper>
       <div className='controls-container'>
@@ -43,7 +50,7 @@ export const ControlsWrapper = () => {
           <CategoryControls />
         </div>
         <div className='sort-wrapper'>
-          <SortControl />
+          <SortControl {...props}/>
         </div>
       </div>
       <ControlsDivider />

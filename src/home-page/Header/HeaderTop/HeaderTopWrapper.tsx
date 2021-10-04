@@ -1,7 +1,11 @@
+import { FC } from 'react';
+
 import styled from 'styled-components';
 
-import { AddMovie } from './AddMovie';
 import { Logo } from '@shared';
+
+import { AddMovie } from './AddMovie';
+import { HeaderTopProps } from './HeaderTop.models';
 
 const Wrapper = styled.div`
   display: flex;
@@ -10,11 +14,11 @@ const Wrapper = styled.div`
     ${(props) => props.theme.size.pageHorizontalPadding} 0;
 `;
 
-export const HeaderTopWrapper = () => {
+export const HeaderTopWrapper: FC<HeaderTopProps> = ({ onAddMovie }) => {
   return (
     <Wrapper>
       <Logo />
-      <AddMovie />
+      <AddMovie onClick={onAddMovie}> + ADD MOVIE </AddMovie>
     </Wrapper>
   );
 };

@@ -1,7 +1,9 @@
-import { fetchMovies } from '@api/Movies';
+import { FC } from 'react';
+
 import styled from 'styled-components';
 
 import { Movie } from './Movie';
+import { MoviesProps } from './Movies.models';
 
 const Wrapper = styled.div`
   display: grid;
@@ -10,19 +12,11 @@ const Wrapper = styled.div`
   grid-template-columns: repeat(auto-fill, 320px);
 `;
 
-const movies = fetchMovies();
-
-export const MoviesWrapper = () => {
+export const MoviesWrapper: FC<MoviesProps> = ({ movies }) => {
   return (
     <Wrapper>
       {movies.map((movie) => (
-        <Movie
-          key={movie.title}
-          title={movie.title}
-          genre={movie.genre}
-          releaseDate={movie.releaseDate}
-          coverUrl={movie.coverUrl}
-        />
+        <Movie movie={movie} key={movie.id} />
       ))}
     </Wrapper>
   );

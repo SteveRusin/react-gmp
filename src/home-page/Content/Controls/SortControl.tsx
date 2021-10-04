@@ -1,10 +1,23 @@
+import { FC } from 'react';
 import { Select } from '@shared';
 
-export const SortControl = () => {
+import { SortOptions } from '../Content.constants';
+import { SortControlProps } from './Controls.models';
+
+export const SortControl: FC<SortControlProps> = ({
+  options,
+  sortBy,
+  optionSelected,
+}) => {
   return (
     <>
-      <span className="sort-label">SORT BY</span>
-      <Select />
+      <span className='sort-label'>SORT BY</span>
+      <Select<SortOptions>
+        options={options}
+        value={sortBy}
+        onSelect={optionSelected}
+        placeholder='NOTHING SELECTED'
+      />
     </>
   );
 };

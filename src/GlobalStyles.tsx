@@ -31,4 +31,12 @@ export const GlobalStyles = createGlobalStyle`
     flex: 1;
     font-size: 1.6rem;
   }
+
+  #portal-root {
+    position: fixed;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+  }
 `;

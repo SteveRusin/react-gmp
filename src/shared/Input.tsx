@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Input = styled.input`
+export const SearchInput = styled.input`
   background-color: ${({theme}) => theme.palette.secondary};
   padding: 1.6rem 1.9rem;
   border: none;
