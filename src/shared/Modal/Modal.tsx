@@ -1,27 +1,14 @@
-import { PureComponent } from 'react';
+import { FC } from 'react';
 import { createPortal } from 'react-dom';
 
 import { ModalOverlay } from './ModalOverlay';
+import { useModalContainer } from './useModalContainer.hook';
 
-const portalRoot = document.getElementById('portal-root');
+export const Modal: FC = ({ children }) => {
+  const modalContainer = useModalContainer();
 
-export class Modal extends PureComponent {
-  modalContainer = document.createElement('div');
-
-  componentDidMount() {
-    document.body.style.overflow = 'hidden';
-    portalRoot!.appendChild(this.modalContainer);
-  }
-
-  componentWillUnmount() {
-    document.body.style.overflow = 'unset';
-    portalRoot!.removeChild(this.modalContainer);
-  }
-
-  render() {
-    return createPortal(
-      <ModalOverlay>{this.props.children}</ModalOverlay>,
-      this.modalContainer
-    );
-  }
-}
+  return createPortal(
+    <ModalOverlay>{children}</ModalOverlay>,
+    modalContainer
+  );
+};

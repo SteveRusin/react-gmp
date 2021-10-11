@@ -7,6 +7,5 @@ export interface AddMovieProps {
 export interface AddMovieModalProps extends AddMovieProps {
   onClose: () => void;
   onSubmit: () => void;
-  onReset: () => void;
 }
 

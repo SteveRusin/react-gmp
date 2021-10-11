@@ -1,15 +1,21 @@
 import { FC } from 'react';
 
-import { Movie as MovieModel } from '@api/Movies';
+import { MovieCover, Menu } from '@shared';
 
-import { MovieWrapper } from './MovieWrapper';
+import { MovieProps } from './Movies.models';
+import { MovieWrapper, MovieContextMenuTrigger } from './Movies.styles';
+import { MENU_ITEMS, MenuItemsIds } from './Movies.constants';
 
-export const Movie: FC<{ movie: MovieModel }> = ({ movie }) => {
+export const Movie: FC<MovieProps> = ({
+  movie,
+  onMovieClick,
+  onMenuItemClick,
+}) => {
   const { coverUrl, genre, releaseDate, title } = movie;
 
   return (
-    <MovieWrapper tabIndex={0}>
-      <img className='movie-cover' src={coverUrl} alt='movie cover' />
+    <MovieWrapper tabIndex={0} onClick={() => onMovieClick(movie)}>
+      <MovieCover src={coverUrl} alt='movie cover' />
       <div className='movie-description-container'>
         <div className='movie-description-heading'>
           <span className='movie-title'>{title}</span>
@@ -17,6 +23,20 @@ export const Movie: FC<{ movie: MovieModel }> = ({ movie }) => {
         </div>
         <span className='movie-release-date'>{releaseDate}</span>
       </div>
+      <Menu<MenuItemsIds>
+        className='movie-menu'
+        items={MENU_ITEMS}
+        onItemClick={(id, e) => {
+          e.stopPropagation();
+          onMenuItemClick(id);
+        }}
+        triggerFactory={() => (
+          <MovieContextMenuTrigger
+            onClick={(e) => e.stopPropagation()}
+            className='movie-menu-trigger'
+          />
+        )}
+      ></Menu>
     </MovieWrapper>
   );
 };

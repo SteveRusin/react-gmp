@@ -25,7 +25,7 @@ export class AddMovieModal extends PureComponent<AddMovieModalProps> {
           <AddMovie movie={this.props.movie}></AddMovie>
         </ContentWrapper>
         <AddMovieActionsWrapper>
-          <ButtonPrimaryOutline onClick={this.props.onReset}>
+          <ButtonPrimaryOutline>
             RESET
           </ButtonPrimaryOutline>
           <ButtonPrimary onClick={this.props.onSubmit}>SUBMIT</ButtonPrimary>

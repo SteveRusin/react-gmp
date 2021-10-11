@@ -1,13 +1,19 @@
-import { FC } from 'react';
 import styled from 'styled-components';
 import { transparentize } from 'polished';
 
 import { FlexColumnContainer } from '@shared';
 
-export const HeaderWrapper = styled(FlexColumnContainer)`
+import { HeaderWrapperProps } from './Header.models';
+
+export const HeaderWrapper = styled(FlexColumnContainer)<HeaderWrapperProps>`
   position: relative;
-  max-height: 396px;
-  background-color: ${({theme}) => transparentize('0.5', theme.palette.accent)};
+  background-color: ${({ theme, isDetailsOpen }) => {
+    return isDetailsOpen
+      ? 'rgba(0, 0, 0, 0.9)'
+      : transparentize('0.5', theme.palette.accent);
+  }};
+  transition: background-color 100ms linear, height 100ms linear;
+
   overflow: hidden;
   margin-bottom: 5px;
 
