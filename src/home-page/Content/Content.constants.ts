@@ -1,9 +1,5 @@
 import { SelectOption } from '@shared';
-
-export const enum SortOptions {
-  ByReleaseDate,
-  ByTitle,
-}
+import { SortOptions } from '@api/Movies';
 
 export const SORT_OPTIONS: SelectOption<SortOptions>[] = [
   {
@@ -13,5 +9,9 @@ export const SORT_OPTIONS: SelectOption<SortOptions>[] = [
   {
     id: SortOptions.ByTitle,
     name: 'Title',
+  },
+  {
+    id: SortOptions.Rating,
+    name: 'Rating',
   },
 ];

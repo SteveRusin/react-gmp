@@ -25,6 +25,9 @@
       "@theme": ["src/theme/index.ts"],
       "@assets/*": ["src/assets/*"],
       "@api/*": ["src/api/*"],
+      "@store/*": ["src/store/*"],
+      "@store": ["src/store/index.ts"],
+      "@types": ["types/index.ts"],
     }
   },
   "exclude": ["node_modules"]

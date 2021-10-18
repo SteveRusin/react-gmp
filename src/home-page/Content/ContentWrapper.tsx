@@ -5,6 +5,7 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   flex: 1;
   gap: 10px;
+  position: relative;
   padding: ${({ theme }) => theme.size.pageVerticalPadding}
     ${({ theme }) => theme.size.pageHorizontalPadding} 10px;
 

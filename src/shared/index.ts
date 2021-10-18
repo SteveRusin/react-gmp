@@ -14,3 +14,5 @@ export * from './DeleteMovie';
 export * from './MovieCover';
 export * from './MovieDetailsContext';
 export * from './Menu';
+export * from './Loading-overlay';
+export * from './Error';

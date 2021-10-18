@@ -1,56 +1,53 @@
-import { PureComponent } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { fetchMovies } from '@api/Movies';
+import {
+  moviesSelector,
+  fetchMoviesFromAPI,
+  moviesLoadingSelector,
+  moviesErrorSelector,
+  moviesTotalSelector,
+  moviesSortBySelector,
+  sortMoviesBy,
+  moviesSearchSelector,
+  moviesFilterByGenreSelector,
+} from '@store';
+import { LoadingOverlay, Error } from '@shared';
 
 import { ContentWrapper } from './ContentWrapper';
 
 import { ControlsWrapper } from './Controls';
 import { MoviesWrapper } from './Movies';
-import { SORT_OPTIONS, SortOptions } from './Content.constants';
-import { SORT_MAP } from './Content.helpers';
-import { ContentState } from './Content.models';
+import { SORT_OPTIONS } from './Content.constants';
 
-export class Content extends PureComponent<unknown, ContentState> {
-  state: ContentState = {
-    sortOptions: SORT_OPTIONS,
-    sortBy: null,
-    movies: fetchMovies(),
-    sortedMovies: null,
-  };
+export const Content = () => {
+  const dispatch = useDispatch();
 
-  private sortMovies = (sortBy: SortOptions) => {
-    if (sortBy == null) {
-      this.setState({
-        ...this.state,
-        sortBy: sortBy,
-        sortedMovies: null,
-      });
+  const movies = useSelector(moviesSelector);
+  const moviesLoading = useSelector(moviesLoadingSelector);
+  const moviesError = useSelector(moviesErrorSelector);
+  const moviesTotal = useSelector(moviesTotalSelector);
+  const moviesSortBy = useSelector(moviesSortBySelector);
+  const moviesSearch = useSelector(moviesSearchSelector);
+  const moviesFilterByGenre = useSelector(moviesFilterByGenreSelector);
 
-      return;
-    }
+  useEffect(() => {
+    dispatch(fetchMoviesFromAPI());
+  }, [dispatch, moviesSortBy, moviesSearch, moviesFilterByGenre]);
 
-    const movieCopy = [...this.state.movies];
-
-    this.setState({
-      ...this.state,
-      sortBy: sortBy,
-      sortedMovies: movieCopy.sort(SORT_MAP[sortBy]),
-    });
-  };
-
-  render() {
-    return (
-      <ContentWrapper>
-        <ControlsWrapper
-          sortBy={this.state.sortBy}
-          options={this.state.sortOptions}
-          optionSelected={this.sortMovies}
-        />
-        <span>
-          <b>{this.state.movies.length}</b> movies found
-        </span>
-        <MoviesWrapper movies={this.state.sortedMovies || this.state.movies} />
-      </ContentWrapper>
-    );
-  }
-}
+  return (
+    <ContentWrapper>
+      <ControlsWrapper
+        sortBy={moviesSortBy}
+        options={SORT_OPTIONS}
+        optionSelected={(sortBy) => dispatch(sortMoviesBy(sortBy))}
+      />
+      <span>
+        <b>{moviesTotal}</b> movies found
+      </span>
+      {moviesError && <Error>{moviesError}</Error>}
+      <MoviesWrapper movies={movies} />
+      {moviesLoading && <LoadingOverlay />}
+    </ContentWrapper>
+  );
+};

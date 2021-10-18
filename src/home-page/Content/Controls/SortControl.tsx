@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Select } from '@shared';
+import { SortOptions } from '@api/Movies';
 
-import { SortOptions } from '../Content.constants';
 import { SortControlProps } from './Controls.models';
 
 export const SortControl: FC<SortControlProps> = ({

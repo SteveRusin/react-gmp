@@ -1,25 +1,15 @@
-import styled from 'styled-components';
+import { FC } from 'react';
 
-const DividerWrapper = styled.div`
-  position: relative;
-  height: 2px;
-  width: 100%;
-  background-color: ${({ theme }) => theme.palette.secondary};
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.24);
+import { DividerWrapper } from './Controls.styles';
 
-  .active-control-indicator {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 28px;
-    background-color: ${({ theme }) => theme.palette.primary};
-  }
-`;
+import { ControlsProps } from './Controls.models';
 
-export const ControlsDivider = () => {
+export const ControlsDivider: FC<ControlsProps> = ({
+  leftOffsetPx,
+  widthPx,
+}) => {
   return (
-    <DividerWrapper>
+    <DividerWrapper widthPx={widthPx} leftOffsetPx={leftOffsetPx}>
       <div className='active-control-indicator'>&nbsp;</div>
     </DividerWrapper>
   );
