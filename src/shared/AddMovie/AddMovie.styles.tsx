@@ -41,3 +41,8 @@ export const MovieDescription = styled(TextArea)`
   margin-bottom: 20px;
   resize: none;
 `;
+
+export const Errors = styled.div`
+  font-size: 1.6rem;
+  color: red;
+`;

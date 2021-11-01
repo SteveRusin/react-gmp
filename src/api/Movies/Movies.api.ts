@@ -8,6 +8,8 @@ import {
   FetchMovieParams,
 } from './Movie.models';
 
+import { movieApiToMovie, movieToMovieApi } from './helpers';
+
 export const fetchMoviesAPI = async (
   params: FetchMovieParams
 ): Promise<MovieApiResponse<Movie[]>> => {
@@ -31,19 +33,25 @@ export const fetchMoviesAPI = async (
 
   return {
     ...data,
-    data: data.data.map(
-      (movie): Movie => ({
-        id: movie.id,
-        title: movie.title,
-        genre: movie.genres,
-        coverUrl: movie.poster_path,
-        description: movie.tagline,
-        rating: movie.vote_average,
-        releaseDate: movie.release_date,
-        runtime: movie.runtime,
-      })
-    ),
+    data: data.data.map((movie): Movie => movieApiToMovie(movie)),
   };
 };
 
 export type fetchMovieType = ReturnType<typeof fetchMoviesAPI>;
+
+export const updateMovie = async (movie: Movie) => {
+  const apiResponse = await axios.put<MovieApiResponse<MovieApi[]>>(
+    `${API_URL}/movies`,
+    movieToMovieApi(movie)
+  );
+
+  return apiResponse;
+};
+
+export const deleteMovie = (movieId: number) => {
+  return axios.delete(`${API_URL}/movies/${movieId}`);
+}
+
+export const createMovie = (movie: Movie) => {
+  return axios.post(`${API_URL}/movies/`, movieToMovieApi(movie));
+}

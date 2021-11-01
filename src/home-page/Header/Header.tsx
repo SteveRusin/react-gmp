@@ -1,6 +1,10 @@
 import { useState, useContext, useCallback } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { createMovie } from '@api/Movies';
 
 import { Modal, AddMovieModal, MovieDetailsContext } from '@shared';
+import { fetchMoviesFromAPI } from '@store';
 
 import { HeaderTopWrapper } from './HeaderTop';
 import { SearchWrapper } from './HeaderSearch';
@@ -14,6 +18,7 @@ export const HomePageHeader = () => {
   const hideMovieDetails = useCallback(() => showMovieDetails(null), []);
   const showAddMovie = useCallback(() => setIsOpen(true), []);
   const closeAddMovie = useCallback(() => setIsOpen(false), []);
+  const dispatch = useDispatch();
 
   const isDetailsOpen = !!movie;
 
@@ -36,7 +41,15 @@ export const HomePageHeader = () => {
         <Modal>
           <AddMovieModal
             onClose={closeAddMovie}
-            onSubmit={() => null /* todo */}
+            onSubmit={async (movie) => {
+              try {
+                await createMovie(movie);
+                dispatch(fetchMoviesFromAPI());
+                closeAddMovie();
+              } catch (e) {
+                console.log('error:', e);
+              }
+            }}
           ></AddMovieModal>
         </Modal>
       )}
