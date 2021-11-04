@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { ThemeProvider } from 'styled-components';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
 import { defaultTheme } from '@theme';
 import { ErrorBoundary } from '@shared';
@@ -15,10 +16,12 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <ErrorBoundary>
-        <ThemeProvider theme={defaultTheme}>
-          <GlobalStyles />
-          <App />
-        </ThemeProvider>
+        <BrowserRouter>
+          <ThemeProvider theme={defaultTheme}>
+            <GlobalStyles />
+            <App />
+          </ThemeProvider>
+        </BrowserRouter>
       </ErrorBoundary>
     </Provider>
   </React.StrictMode>,

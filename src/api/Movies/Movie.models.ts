@@ -57,3 +57,14 @@ export interface FetchMovieParams {
   searchBy: string;
   filter?: MovieGenre[] | null;
 }
+
+export interface SearchMovieUrlParams {
+  searchQuery: string;
+  genre?: MovieGenre;
+  sortBy?: SortOptions;
+  movieId?: number;
+}
+
+export interface SearchMovieWithUrlParams extends SearchMovieUrlParams {
+  urlSearchParams: URLSearchParams;
+}

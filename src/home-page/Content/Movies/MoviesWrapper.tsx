@@ -8,7 +8,7 @@ import {
   Modal,
 } from '@shared';
 import { Movie as MovieModel, updateMovie, deleteMovie } from '@api/Movies';
-import { fetchMoviesFromAPI } from '@store';
+import { useDispatchFetchMovieFromApi } from '@store';
 
 import { Movie } from './Movie';
 import { MoviesProps } from './Movies.models';
@@ -17,12 +17,12 @@ import { MenuItemsIds } from './Movies.constants';
 
 export const MoviesWrapper: FC<MoviesProps> = ({ movies }) => {
   const { showMovieDetails } = useContext(MovieDetailsContext);
+  const dispatchFetchMovies = useDispatchFetchMovieFromApi();
   const [editMovieOpen, setEditMovieOpen] = useState(false);
   const [deleteMovieOpen, setDeleteMovieOpen] = useState(false);
   const [targetMovie, setTargetMovie] = useState<MovieModel | null>(null);
   const showEditModal = editMovieOpen && targetMovie;
   const showDeleteModal = deleteMovieOpen && targetMovie;
-  const dispatch = useDispatch();
 
   return (
     <>
@@ -53,7 +53,7 @@ export const MoviesWrapper: FC<MoviesProps> = ({ movies }) => {
             onConfirm={async () => {
               try {
                 await deleteMovie(targetMovie.id);
-                dispatch(fetchMoviesFromAPI());
+                dispatchFetchMovies();
                 setTargetMovie(null);
                 setEditMovieOpen(false);
               } catch (e) {
@@ -74,7 +74,7 @@ export const MoviesWrapper: FC<MoviesProps> = ({ movies }) => {
             onSubmit={async (movie) => {
               try {
                 await updateMovie(movie);
-                dispatch(fetchMoviesFromAPI());
+                dispatchFetchMovies();
                 setTargetMovie(null);
                 setEditMovieOpen(false);
               } catch (e) {

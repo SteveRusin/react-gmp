@@ -12,10 +12,12 @@ export const webpackDevConfigPart: WebpackDevConfiguration = {
     path: resolve("build"),
     filename: "[name].bundle.js",
     clean: true,
+    publicPath: '/',
   },
   devServer: {
     open: true,
     hot: true,
+    historyApiFallback: true,
   },
 };
 

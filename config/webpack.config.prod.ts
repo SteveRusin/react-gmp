@@ -11,6 +11,7 @@ const webpackProdConfigPart: Configuration = {
     path: resolve("build"),
     filename: "[name].[chunkhash].bundle.js",
     clean: true,
+    publicPath: '/',
   },
   performance: {
     hints: "warning",

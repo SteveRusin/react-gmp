@@ -12,9 +12,6 @@ export interface MoviesState {
   limit: number;
   offset: number;
   totalAmount: number;
-  sortBy: SortOptions;
-  search: string;
-  filterByGenre: MovieGenre | null;
 
   status: MoviesStatus;
   error: string | null;
@@ -22,4 +19,5 @@ export interface MoviesState {
 
 export interface Payload<PType> {
   payload: PType;
+  type: string;
 }

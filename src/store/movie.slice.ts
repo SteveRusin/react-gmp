@@ -1,6 +1,6 @@
 import { createSlice, createSelector } from '@reduxjs/toolkit';
 
-import { Movie, SortOptions, MovieGenre } from '@api/Movies';
+import { Movie, SearchMovieUrlParams } from '@api/Movies';
 
 import { MoviesState, MoviesStatus, Payload } from './movie.store.models';
 import type { RootState } from './store';
@@ -11,9 +11,6 @@ const initialState: MoviesState = {
   limit: 0,
   offset: 0,
   totalAmount: 0,
-  sortBy: SortOptions.ByTitle,
-  search: '',
-  filterByGenre: null,
 
   status: MoviesStatus.Idle,
   error: null,
@@ -23,7 +20,7 @@ export const movieSlice = createSlice({
   name: 'MoviesSlice',
   initialState: initialState,
   reducers: {
-    fetchMoviesFromAPI(state) {
+    fetchMoviesFromAPI(state, _payload: Payload<SearchMovieUrlParams>) {
       return {
         ...state,
         status: MoviesStatus.Loading,
@@ -48,22 +45,10 @@ export const movieSlice = createSlice({
         status: MoviesStatus.LoadingFailed,
       };
     },
-    sortMoviesBy(state, { payload }: Payload<SortOptions>) {
-      return {
-        ...state,
-        sortBy: payload,
-      };
-    },
     searchMovies(state, { payload }: Payload<string>) {
       return {
         ...state,
         search: payload,
-      };
-    },
-    filterByGenre(state, { payload }: Payload<MovieGenre | null>) {
-      return {
-        ...state,
-        filterByGenre: payload,
       };
     },
   },
@@ -73,9 +58,6 @@ export const {
   fetchMoviesFromAPI,
   fetchMoviesFailure,
   fetchMoviesSucceed,
-  sortMoviesBy,
-  searchMovies,
-  filterByGenre,
 } = movieSlice.actions;
 
 export const movieReducer = movieSlice.reducer;
@@ -100,21 +82,6 @@ export const moviesStatusSelector = createSelector(
 export const moviesTotalSelector = createSelector(
   movieStateSelector,
   (state) => state.totalAmount
-);
-
-export const moviesSortBySelector = createSelector(
-  movieStateSelector,
-  (state) => state.sortBy
-);
-
-export const moviesSearchSelector = createSelector(
-  movieStateSelector,
-  (state) => state.search
-);
-
-export const moviesFilterByGenreSelector = createSelector(
-  movieStateSelector,
-  (state) => state.filterByGenre
 );
 
 export const moviesLoadingSelector = createSelector(

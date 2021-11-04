@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { createMovie } from '@api/Movies';
 
 import { Modal, AddMovieModal, MovieDetailsContext } from '@shared';
-import { fetchMoviesFromAPI } from '@store';
+import { useDispatchFetchMovieFromApi } from '@store';
 
 import { HeaderTopWrapper } from './HeaderTop';
 import { SearchWrapper } from './HeaderSearch';
@@ -14,11 +14,11 @@ import { MovieDetails } from './MovieDetails';
 export const HomePageHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { movie, showMovieDetails } = useContext(MovieDetailsContext);
+  const dispatchFetchMovies = useDispatchFetchMovieFromApi();
 
   const hideMovieDetails = useCallback(() => showMovieDetails(null), []);
   const showAddMovie = useCallback(() => setIsOpen(true), []);
   const closeAddMovie = useCallback(() => setIsOpen(false), []);
-  const dispatch = useDispatch();
 
   const isDetailsOpen = !!movie;
 
@@ -44,7 +44,7 @@ export const HomePageHeader = () => {
             onSubmit={async (movie) => {
               try {
                 await createMovie(movie);
-                dispatch(fetchMoviesFromAPI());
+                dispatchFetchMovies();
                 closeAddMovie();
               } catch (e) {
                 console.log('error:', e);
