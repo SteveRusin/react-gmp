@@ -71,6 +71,7 @@ export class Select<TId> extends PureComponent<
 
     if (isMultiSelect<TId>(this.props)) {
       e.nativeEvent.stopImmediatePropagation();
+      e.stopPropagation();
       this.props.onSelect([...selectedOptions]);
     } else {
       this.props.onSelect(optionId);
@@ -111,7 +112,11 @@ export class Select<TId> extends PureComponent<
     const triggerValue = this.findSelectedOption();
 
     return (
-      <SelectWrapper onClick={this.toggleIsOpen} className={this.selectClass}>
+      <SelectWrapper
+        data-testid='select'
+        onClick={this.toggleIsOpen}
+        className={this.selectClass}
+      >
         <div className='placeholder-wrapper'>
           <Input
             className='select-trigger'

@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfigs/tsconfig.common.json",
+  "compilerOptions": {
+    "types": ["jest"]
+  },
+  "exclude": ["./cypress", "node_modules"]
+}

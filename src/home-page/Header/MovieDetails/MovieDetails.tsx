@@ -7,7 +7,7 @@ import { MovieDetailsProps } from './MovieDetails.models';
 
 export const MovieDetails: FC<MovieDetailsProps> = ({ movie }) => {
   return (
-    <MovieDetailsWrapper>
+    <MovieDetailsWrapper data-e2e='movie-details-wrapper'>
       <MovieCover src={movie.coverUrl}></MovieCover>
       <div>
         <div className='details-heading'>

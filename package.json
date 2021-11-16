@@ -24,7 +24,11 @@
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.15.0",
+    "@testing-library/dom": "^8.11.0",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
     "@types/compression-webpack-plugin": "^6.0.6",
+    "@types/jest": "^27.0.2",
     "@types/node": "^16.9.1",
     "@types/react": "^17.0.21",
     "@types/react-dom": "^17.0.9",
@@ -35,8 +39,11 @@
     "babel-loader": "^8.2.2",
     "babel-plugin-styled-components": "^1.13.2",
     "compression-webpack-plugin": "^9.0.0",
+    "cypress": "^9.0.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
+    "jest": "^27.3.1",
+    "ts-jest": "^27.0.7",
     "ts-loader": "^9.2.5",
     "ts-node": "^10.2.1",
     "tsconfig-paths": "^3.11.0",
@@ -48,7 +55,9 @@
   },
   "scripts": {
     "start": "webpack server --config config/webpack.config.dev.ts",
-    "build": "webpack build --config config/webpack.config.prod.ts"
+    "build": "webpack build --config config/webpack.config.prod.ts",
+    "test": "jest",
+    "cypress:open": "cypress open"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddMovie Modal Component should renders correctly 1`] = `
+<div
+  id="portal-root"
+>
+  <div>
+    <div
+      class="sc-bqyKOL epsUjv"
+    >
+      <div
+        class="sc-bdfBQB sc-fFucqa dzdWDj fIsatb"
+      >
+        <div
+          class="sc-fodVek icvtoC"
+        >
+          <h2
+            class="sc-kstqJO iHJPjr"
+          >
+            ADD MOVIE
+          </h2>
+          <svg
+            aria-hidden="true"
+            class="StyledIconBase-ea9ulj-0 iuNRof sc-hBEYId fbvFpy"
+            fill="currentColor"
+            focusable="false"
+            height="24"
+            viewBox="0 0 16 16"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+        <div
+          class="sc-bdfBQB sc-bkzYnD dzdWDj"
+        >
+          <div
+            class="sc-dIUeWJ dDiiVg"
+          >
+            <div
+              class="form-left"
+            >
+              <label
+                class="sc-fubCzh wpnEc"
+              >
+                TITLE
+                <input
+                  class="sc-pGacB gfISUd"
+                  name="title"
+                  placeholder="Enter movie title"
+                  value=""
+                />
+              </label>
+              <label
+                class="sc-fubCzh wpnEc"
+              >
+                MOVIE URL
+                <input
+                  class="sc-pGacB gfISUd"
+                  name="coverUrl"
+                  placeholder="https://"
+                  value=""
+                />
+              </label>
+              <label
+                class="sc-fubCzh wpnEc"
+              >
+                GENRE
+                <div
+                  class="sc-iqHYmW hotNnh select-component"
+                  data-testid="select"
+                >
+                  <div
+                    class="placeholder-wrapper"
+                  >
+                    <input
+                      class="sc-pGacB gfISUd select-trigger"
+                      placeholder="Select genre"
+                      readonly=""
+                      value=""
+                    />
+                    <svg
+                      aria-hidden="true"
+                      class="StyledIconBase-ea9ulj-0 iuNRof sc-kEjbQP gZSKvA"
+                      color="#F65261"
+                      fill="currentColor"
+                      focusable="false"
+                      height="25"
+                      viewBox="0 0 16 16"
+                      width="25"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </label>
+            </div>
+            <div
+              class="form-right"
+            >
+              <label
+                class="sc-fubCzh wpnEc"
+              >
+                RELEASE DATE
+                <input
+                  class="sc-pGacB gfISUd"
+                  name="releaseDate"
+                  placeholder="Select Date"
+                  readonly=""
+                  value=""
+                />
+              </label>
+              <label
+                class="sc-fubCzh wpnEc"
+              >
+                RATING
+                <input
+                  class="sc-pGacB gfISUd"
+                  name="rating"
+                  placeholder="7.8"
+                  value=""
+                />
+              </label>
+              <label
+                class="sc-fubCzh wpnEc"
+              >
+                RUNTIME
+                <input
+                  class="sc-pGacB gfISUd"
+                  name="runtime"
+                  placeholder="minutes"
+                  type="number"
+                  value=""
+                />
+              </label>
+            </div>
+          </div>
+          <label
+            class="sc-fubCzh wpnEc"
+            style="flex: 1;"
+          >
+            OVERVIEW
+            <textarea
+              class="sc-jrAFXE sc-hHfuMS gratnB dLMlOl"
+              name="description"
+              placeholder="Movie description"
+            />
+          </label>
+          <div
+            class="sc-dmlqKv RVMoI"
+          />
+        </div>
+        <div
+          class="sc-idOiZg kWopHX"
+        >
+          <button
+            class="sc-gsTEea sc-jSgvzq jDOibV grpEFO"
+          >
+            RESET
+          </button>
+          <button
+            class="sc-gsTEea sc-eCstlR jDOibV creYTS"
+            type="submit"
+          >
+            SUBMIT
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

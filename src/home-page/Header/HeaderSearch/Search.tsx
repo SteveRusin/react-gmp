@@ -21,6 +21,7 @@ export const Search: FC<SearchProps> = ({
     >
       <Input
         className='search-input'
+        data-e2e='search-input'
         type='text'
         value={searchValue}
         onChange={(e) => onSearchValueChange(e.target.value)}

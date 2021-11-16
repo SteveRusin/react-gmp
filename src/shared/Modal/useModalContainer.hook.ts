@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
 
-const portalRoot = document.getElementById('portal-root');
-
 export const useModalContainer = () => {
   const [modalContainer] = useState(() => document.createElement('div'));
 
   useEffect(() => {
+    const portalRoot = document.getElementById('portal-root');
     document.body.style.overflow = 'hidden';
     portalRoot!.appendChild(modalContainer);
 

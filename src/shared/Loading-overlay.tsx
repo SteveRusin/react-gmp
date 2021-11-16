@@ -9,4 +9,4 @@ const Overlay = styled.div`
   background-color: rgba(0, 0, 0, 0.7);
 `;
 
-export const LoadingOverlay = () => <Overlay>Loading...</Overlay>;
+export const LoadingOverlay = () => <Overlay data-testid="loading-overlay">Loading...</Overlay>;

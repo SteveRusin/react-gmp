@@ -46,7 +46,7 @@ export const Content = () => {
           });
         }}
       />
-      <span>
+      <span data-e2e="movies-total">
         <b>{moviesTotal}</b> movies found
       </span>
       {moviesError && <Error>{moviesError}</Error>}

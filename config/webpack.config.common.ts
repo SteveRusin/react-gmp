@@ -13,6 +13,7 @@ export const config: Configuration = {
       '@api': resolve("src", "api"),
       '@store': resolve("src", "store"),
       '@types': resolve("types"),
+      '@test-utils': resolve("test-utils"),
     }
   },
   module: {

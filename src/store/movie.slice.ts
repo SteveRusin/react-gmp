@@ -6,7 +6,7 @@ import { MoviesState, MoviesStatus, Payload } from './movie.store.models';
 import type { RootState } from './store';
 import { MovieApiResponse } from '@api/Movies/Movie.models';
 
-const initialState: MoviesState = {
+export const moviesInitialState: MoviesState = {
   movies: [],
   limit: 0,
   offset: 0,
@@ -18,7 +18,7 @@ const initialState: MoviesState = {
 
 export const movieSlice = createSlice({
   name: 'MoviesSlice',
-  initialState: initialState,
+  initialState: moviesInitialState,
   reducers: {
     fetchMoviesFromAPI(state, _payload: Payload<SearchMovieUrlParams>) {
       return {
@@ -40,7 +40,7 @@ export const movieSlice = createSlice({
     fetchMoviesFailure(state, { payload }: Payload<string>) {
       return {
         ...state,
-        ...initialState,
+        ...moviesInitialState,
         error: payload,
         status: MoviesStatus.LoadingFailed,
       };

@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select Component should renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-eCstlR wvyOx select-component"
+    data-testid="select"
+  >
+    <div
+      class="placeholder-wrapper"
+    >
+      <input
+        class="sc-gsTEea eECbOD select-trigger"
+        placeholder="Select something"
+        readonly=""
+        value=""
+      />
+      <svg
+        aria-hidden="true"
+        class="StyledIconBase-ea9ulj-0 iuNRof sc-hKgJUU dUbcdB"
+        color="#F65261"
+        fill="currentColor"
+        focusable="false"
+        height="25"
+        viewBox="0 0 16 16"
+        width="25"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427z"
+        />
+      </svg>
+    </div>
+  </div>
+</DocumentFragment>
+`;
