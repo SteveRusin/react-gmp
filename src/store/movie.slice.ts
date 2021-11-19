@@ -3,7 +3,7 @@ import { createSlice, createSelector } from '@reduxjs/toolkit';
 import { Movie, SearchMovieUrlParams } from '@api/Movies';
 
 import { MoviesState, MoviesStatus, Payload } from './movie.store.models';
-import type { RootState } from './store';
+import type { RootState } from './store.models';
 import { MovieApiResponse } from '@api/Movies/Movie.models';
 
 export const moviesInitialState: MoviesState = {

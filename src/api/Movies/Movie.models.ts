@@ -59,7 +59,7 @@ export interface FetchMovieParams {
 }
 
 export interface SearchMovieUrlParams {
-  searchQuery: string;
+  searchQuery?: string;
   genre?: MovieGenre;
   sortBy?: SortOptions;
   movieId?: number;

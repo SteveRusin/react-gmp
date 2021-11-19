@@ -1,13 +1,12 @@
-import { call, put, takeLatest, delay } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import { isAxiosError } from '@types';
 
 import {
   fetchMoviesAPI,
   fetchMovieType,
-  SearchByOption,
   SearchMovieUrlParams,
   FetchMovieParams,
-  SortOptions
+  mapSearchMovieParams,
 } from '@api/Movies';
 import {
   fetchMoviesFromAPI,
@@ -20,14 +19,7 @@ function* fetchMovies(params: Payload<SearchMovieUrlParams>) {
   const { payload } = params;
 
   try {
-    const fetchParams: FetchMovieParams = {
-      sortBy: payload.sortBy!,
-      search: payload.searchQuery ? payload.searchQuery : void 0,
-      sortOrder: 'asc',
-      searchBy: SearchByOption.ByTitle,
-      limit: 9,
-      filter: payload.genre ? [payload.genre] : void 0,
-    };
+    const fetchParams: FetchMovieParams = mapSearchMovieParams(payload);
 
     const moviesResponse: Awaited<fetchMovieType> = yield call(
       fetchMoviesAPI,

@@ -29,7 +29,6 @@ export const Content = () => {
   const moviesLoading = useSelector(moviesLoadingSelector);
   const moviesError = useSelector(moviesErrorSelector);
   const moviesTotal = useSelector(moviesTotalSelector);
-
   useEffect(() => {
     dispatchFetchMovies();
   }, [dispatch, sortBy, searchQuery, genre]);

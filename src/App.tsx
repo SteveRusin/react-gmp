@@ -3,15 +3,10 @@ import { Switch, Route, Redirect, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import { Movie, useMovieSearch } from '@api/Movies';
-import {
-  Footer,
-  FlexColumnContainer,
-  MovieDetailsContext,
-  NotFoundPage,
-} from '@shared';
+import { MovieDetailsContext, NotFoundPage } from '@shared';
 import { moviesSelector } from '@store';
 
-import { HomePageHeader, Content } from './home-page';
+import { HomePage } from './home-page';
 
 export default function App() {
   const movies = useSelector(moviesSelector);
@@ -45,11 +40,7 @@ export default function App() {
             showMovieDetails: setMovieWithDetails,
           }}
         >
-          <HomePageHeader />
-          <FlexColumnContainer>
-            <Content />
-          </FlexColumnContainer>
-          <Footer />
+          <HomePage></HomePage>
         </MovieDetailsContext.Provider>
       </Route>
       <Route path='*'>
