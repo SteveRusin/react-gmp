@@ -13,6 +13,7 @@ export const webpackDevConfigPart: WebpackDevConfiguration = {
     filename: "[name].bundle.js",
     clean: true,
     publicPath: '/',
+    assetModuleFilename: 'assets/[name][ext]',
   },
   devServer: {
     open: true,

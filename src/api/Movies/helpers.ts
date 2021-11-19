@@ -7,6 +7,8 @@ import {
   MovieGenre,
   SearchMovieWithUrlParams,
   SortOptions,
+  FetchMovieParams,
+  SearchByOption,
 } from './Movie.models';
 
 export function movieApiToMovie(movie: MovieApi): Movie {
@@ -40,7 +42,8 @@ export function useMovieSearch(): SearchMovieWithUrlParams {
   const location = useLocation();
   const urlParams = new URLSearchParams(location.search);
   const genre = urlParams.get('genre') as MovieGenre;
-  const sortBy = urlParams.get('sortBy') as SortOptions || SortOptions.ByTitle;
+  const sortBy =
+    (urlParams.get('sortBy') as SortOptions) || SortOptions.ByTitle;
   const movieId = parseInt(urlParams.get('movie')!, 10) || void 0;
 
   return {
@@ -49,5 +52,18 @@ export function useMovieSearch(): SearchMovieWithUrlParams {
     movieId,
     searchQuery: params.searchQuery || '',
     urlSearchParams: urlParams,
+  };
+}
+
+export function mapSearchMovieParams(
+  payload?: SearchMovieUrlParams
+): FetchMovieParams {
+  return {
+    sortBy: payload?.sortBy! || SortOptions.ByTitle,
+    search: payload?.searchQuery ? payload.searchQuery : void 0,
+    sortOrder: 'asc',
+    searchBy: SearchByOption.ByTitle,
+    limit: 9,
+    filter: payload?.genre ? [payload.genre] : void 0,
   };
 }

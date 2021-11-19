@@ -1,8 +1,8 @@
-import axios, { AxiosStatic } from 'axios';
-import { screen, waitFor, act } from '@testing-library/react';
+import axios from 'axios';
+import { screen, waitFor } from '@testing-library/react';
 
 import { renderWithRedux, mockMoviesResponse } from '@test-utils';
-import { store } from '@store';
+import { createStore } from '@store';
 import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from '@theme';
 
@@ -21,7 +21,7 @@ function renderWithRouter() {
           <Content />
         </Router>
       </ThemeProvider>,
-      store
+      createStore()
     ),
     history,
   };

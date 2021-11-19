@@ -10,15 +10,7 @@ export const Search: FC<SearchProps> = ({
   onSearch,
 }) => {
   return (
-    <form
-      style={{
-        display: 'contents',
-      }}
-      onSubmit={(e) => {
-        e.preventDefault();
-        onSearch();
-      }}
-    >
+    <>
       <Input
         className='search-input'
         data-e2e='search-input'
@@ -26,10 +18,11 @@ export const Search: FC<SearchProps> = ({
         value={searchValue}
         onChange={(e) => onSearchValueChange(e.target.value)}
         placeholder='What do you want to watch'
+        onKeyDown={(e) => e.key === 'Enter' && onSearch()}
       />
-      <ButtonPrimary type='submit' className='search-button'>
+      <ButtonPrimary onClick={onSearch} className='search-button'>
         SEARCH
       </ButtonPrimary>
-    </form>
+    </>
   );
 };
