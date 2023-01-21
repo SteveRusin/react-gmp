@@ -1,0 +1,1 @@
+export { DeleteMovie } from './DeleteMovie';

@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Delete movie componentComponent should renders correctly 1`] = `
+<div
+  id="portal-root"
+>
+  <div>
+    <div
+      class="sc-bqyKOL epsUjv"
+    >
+      <div
+        class="sc-bdfBQB sc-kfzBvY dzdWDj dPYDJS"
+      >
+        <div
+          class="sc-fodVek icvtoC"
+        >
+          <h2
+            class="sc-kstqJO iHJPjr"
+          >
+            DELETE MOVIE
+          </h2>
+          <svg
+            aria-hidden="true"
+            class="StyledIconBase-ea9ulj-0 iuNRof sc-hBEYId fbvFpy"
+            fill="currentColor"
+            focusable="false"
+            height="24"
+            viewBox="0 0 16 16"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+        <div>
+          Are you sure you want to delete this movie?
+        </div>
+        <button
+          class="sc-gsTEea sc-eCstlR jDOibV creYTS confirm-button"
+        >
+          CONFIRM
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

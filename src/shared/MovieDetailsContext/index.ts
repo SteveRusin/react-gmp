@@ -1,0 +1,1 @@
+export { MovieDetailsContext } from './MovieDetailsContext';

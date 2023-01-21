@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie Component should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-giImIA ikMeFL"
+    data-testid="movie-wrapper"
+    tabindex="0"
+  >
+    <img
+      alt="movie cover"
+      class="sc-fKFxtB duVGWx"
+      src="url"
+    />
+    <div
+      class="movie-description-container"
+    >
+      <div
+        class="movie-description-heading"
+      >
+        <span
+          class="movie-title"
+        >
+          Movie Title
+        </span>
+        <span
+          class="movie-genre"
+        >
+          Adventure
+        </span>
+      </div>
+      <span
+        class="movie-release-date"
+      >
+        2021
+      </span>
+    </div>
+    <div
+      class="sc-bBXrwG movie-menu"
+      tabindex="0"
+    >
+      <svg
+        aria-hidden="true"
+        class="StyledIconBase-ea9ulj-0 iuNRof sc-ezredP dFmsqn movie-menu-trigger"
+        fill="currentColor"
+        focusable="false"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM1.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm13 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"
+        />
+      </svg>
+    </div>
+  </div>
+</DocumentFragment>
+`;
